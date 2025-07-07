@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffb7c5;  /* Blush pink */
+            --secondary: #9ACD32; /* Light green accent */
+            --text: #5D4037;     /* Warm brown */
+            --light: #FFF5EE;    /* Romantic white */
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(236, 116, 4, 0.7), rgba(255,253,244,0.7)),
+                        url('https://images.pexels.com/photos/2088170/pexels-photo-2088170.jpeg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78ba944d-5546-45c1-b479-668860b6f3fd.png');
+            background-size: 10% 10%;
+            opacity: 0.1;
+            transform: rotate(30deg);
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 1rem;
+            z-index: 1;
+        }
+        .romantic-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            color: var(--light);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .heart-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            font-weight: 600;
+        }
+
+        .heart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .memory-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .memory-text {
+            margin-bottom: 15px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .countdown-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: var(--shadow);
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .love-letter {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .love-letter::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 8rem;
+            color: rgba(255, 126, 185, 0.1);
+            font-family: 'Dancing Script', cursive;
+            z-index: 0;
+        }
+
+        .love-letter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+
+        .heart-animation {
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: float-up 4s ease-in forwards;
+            opacity: 0.8;
+            font-size: 24px;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -100px);
+                opacity: 0;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .love-letter {
+                padding: 20px;
+            }
+            
+            .memory-card {
+                padding: 20px;
+            }
+        }
+
+        /* Touch optimizations */
+        button, .memory-card, .gallery img {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Music player - placed early to ensure autoplay works better -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="Taylor Swift - Mine - TaylorSwiftVEVO.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="hero" id="hero">
+        <h1>For My Babiii</h1>
+        <p>In every lifetime, in every universe, I would find you and choose you.</p>
+        <p class="romantic-sub">"I choose you. And I'll choose you over and over."</p>
+        <button class="heart-btn" id="heartBtn">Press for Surprise</button>
+    </div>
+
+    <section id="memories">
+        <div class="container">
+            <h2 class="section-title">Our Beautiful Memories</h2>
+            <div class="memory-card">
+                <div class="memory-date">The Day We Met</div>
+                <div class="memory-text">HAHAHAAH This is the day we met muna kase dito nama talaga tayo una nag ka kilala mwehehehe thanks to facebook and solo leveling we reached where we are ow HIHIHIH i'm so thankful na nakilala kita here, it's risky but it's also worth it dahil ikaw na yan eee nu pa magagawa ko .</div>
+                <div class="gallery">
+                    <img src="Theday.jpg" alt="Romantic black and white image of a couple holding hands while walking through a park with autumn leaves falling around them" />
+                </div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-date">Our First Date</div>
+                <div class="memory-text">HAHAHA nilagay ko lang to kase na e excite na ko na makita kita personally and we have so much plan na dinn, debaaa nakaka excite hahaha wag mong sabihing di ka na e excite baka paloin kita ng di mo malaman laman hehehehe juk pooo, let's start our date from alphabet A-Z hihih em so excited na po babiiii can't wait but I'm still on phase of waitin sooo whatever basta ikaw na yan  </div>
+                <div class="gallery">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/988a5833-5344-4878-9906-fe4fc6a845c6.png" alt="Cozy café interior with two cups of coffee and desserts on the table, candlelight creating a warm romantic atmosphere for a first date" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="countdown">
+        <div class="container">
+            <h2 class="section-title">Counting Every Moment</h2>
+            <div class="countdown" id="countdownContainer">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="letter">
+        <div class="container">
+            <h2 class="section-title">To The One I Love</h2>
+            <div class="love-letter">
+                <div class="love-letter-content">
+                    <p>My Dearest,</p>
+                    <p>Hi babiii, I know this is so random but I just want to say how lucky I am to have you.</p>
+                    <p>you bring out the best in me that no one else can do, </p>
+                    <p>thank you for being my number one supporter in everything I do! I appreciate all your time and effort for me.</p>
+                    <p>you're my strength when i'm weak and you will always be the reason of my small or big wins because you are my inspiration and you motivate me to do things. </p>
+                    <p> God knows how much I care for you and how much I love you. I promise to protect you all the time. I love you so much, my love!</p>
+                    <p>I love you baby! I promise to be with you all the time and protect you all the time. again, these are not just words but all these words are coming from the bottom of my heart PURELY. I will never let you face battles or challenges alone babiii ko! you always have me, always in all ways. you deserve everything good in this world my love, you deserve all the love, you deserve all the efforts, you deserve the best babiiii! through ups and down you always have me, okay? I love you so much babiii ko!
+                    Babiiiii ko, thank you for everything you've done for me/us! I promise to love you everyday in every way, I promise you to give the love that you deserve, I promise to be your shoulder to cry on when things are hard to handle, Love I know these are just words but I assure you that these words are from the bottom of my heart and i'll fulfill my promises! to my pretty babiiii I just wanna let you know that I love you so much with every beat of my heart ❤️"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="gallery">
+                <img src="1month.png" alt="Romantic beach sunset silhouette of a couple holding hands with their feet in the water, warm golden light reflecting on the waves" />
+                <img src="2nd.png" alt="Close-up of two champagne glasses clinking with festive lights blurred in the background, celebrating a special anniversary together" />
+                <img src="3rd.png" alt="Playful image of a couple having a snowball fight in winter, mittens covered in snow, with joyful expressions on their faces" />
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>I appreciate you every second that we're together, my love for you won't change till the day you'll said yes ILOVE YOU BABIIII <3 <3 <3 </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple audio autoplay
+        document.addEventListener('DOMContentLoaded', () => {
+            const music = document.getElementById('bgMusic');
+            music.volume = 0.3; // Set volume
+            // Try to play - will often require user interaction on mobile
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Autoplay blocked, we'll need user interaction
+                });
+            }
+        });
+
+        // Heart animation effect
+        document.getElementById('heartBtn').addEventListener('click', function(e) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-animation';
+            heart.innerHTML = '❤️';
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+            
+            // Show random sweet message
+            const messages = [
+                "You make my heart skip a beat",
+                "I love you more than words can express",
+                "Your smile is my favorite thing in the world",
+                "Every day with you is a blessing",
+                "I fall for you more each day",
+                "You're my favorite hello and hardest goodbye"
+            ];
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+        });
+
+        // Countdown timer (set to your anniversary date)
+        function updateCountdown() {
+            // Set your anniversary date here (YYYY, MM-1, DD)
+            const anniversary = new Date(2025, 04, 01); // Example: May 1, 2025
+            const now = new Date();
+            const diff = anniversary - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown immediately and then every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
